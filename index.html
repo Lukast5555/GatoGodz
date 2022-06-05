@@ -1,0 +1,336 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+<title>Gato Gods</title>
+
+
+</head>
+
+<body>
+  <header>
+      <p style="display: none" id="walletaddr"></p>
+   <div class="inner">
+       <div class="logo">
+           <div>
+               <!-- The below line can be an image or a h1, either will work -->
+               <img src="logo.png" alt="Google logo">
+               <!-- <h1>My Logo</h1> -->
+           </div>
+       </div>
+
+       <nav>
+           <!-- Each of the below lines look complicated. There is a reason for this markup though!
+           <li> tag will be the container for the table.
+           <span> will be the part that centers the content inside it
+           <a> is the actual clickable part -->
+           <li><span><a href="#">Lore</a></span></li>
+           <li><span><a href="store.html">About</a></span></li>
+           <li><span><a href="#">Road map</a></span></li>
+           <li><span><a href="https://twitter.com/ArenaCatsNFT" class="button">Discord</a></span></li>
+           <li><span><button onclick="connect()" id="connect">Connect</button></span></li>
+           <li><span><button id="coins">Coins : 0</button></span></li>
+           <!-- On the line above, remove the class="button" if you don't want the final
+           element to be a button -->
+       </nav>
+   </div>
+</header>
+
+
+ <div class = "top">
+ <!--  -->
+ <div class="title">
+   <h3>WELCOME TO</h3>
+   <h1>GATO GODS</h1>
+   <button onclick="mint()" id="mint">Mint</button>
+
+ </div>
+ <img class = "top-img" src="forest.png" alt="img">
+ </div>
+
+<!--
+    <div class="container"><div class="logo"><a href="#"><img src="images/logo.png" alt="Baby Ghosts NFT Collection"></a></div><nav id="nav"><ul class="menu-list"><li><a href="#section1">Welcome</a></li><li><a href="#section2">Goals</a></li><li><a href="#section3">Rarity</a></li><li><a href="#section5">Team</a></li><li><a href="#section4">FAQ</a></li></ul><ul class="social-list"><li><a href="https://opensea.io/collection/babyghosts" target="_blank" rel="noreferrer"><img src="images/opensea.svg" alt="Opensea"></a></li><li><a href="https://discord.gg/BabyGhosts" target="_blank" rel="noreferrer"><img src="images/discord.svg" alt="discord"></a></li><li><a href="https://twitter.com/BabyGhosts_NFT" target="_blank" rel="noreferrer"><img src="images/twitter.svg" alt="twitter"></a></li></ul></nav></div>
+    <header>
+    -->
+
+    <div class="text-bg-holder">
+
+
+    </div>
+    <div class = "FAQ">
+      <h1>FAQs</h1>
+      <div cLass = "FAQwrap">
+      <p>
+      Gato Gods are a collection of 5555 randomly generated nfts. These adorable cats have many different perks,
+      firstly they each generate 10 paw coins per day, these coins can be used to buy books of power in the store.
+      Books can grant you access into events, new and free nft drops, riddles, games and more. Secondly owning 4 cats will
+      grant you access to your own custom designed cat with a theme of your choice.
+    </p>
+    <img class = "FAQimg" src="gif-export.gif" alt="img">
+    </div>
+  </div>
+
+  <div id="token-values" style="margin-left: 10px;">
+
+  </div>
+  </head>
+
+    <!-- red container div -->
+    <div style="position: relative; display: inline-block">
+      <!-- smaller red container div -->
+      <div
+        style="
+          position: absolute;
+          display: flex;
+          width: 100%;
+          align-items: center;
+          padding: 20px;
+        "
+      >
+        <!-- player health -->
+        <div
+          style="
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            border-top: 4px solid white;
+            border-left: 4px solid white;
+            border-bottom: 4px solid white;
+          "
+        >
+          <div style="background-color: red; height: 30px; width: 100%"></div>
+          <div
+            id="playerHealth"
+            style="
+              position: absolute;
+              background: #818cf8;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+            "
+          ></div>
+        </div>
+
+        <!-- timer -->
+        <div
+          id="timer"
+          style="
+            background-color: black;
+            width: 100px;
+            height: 50px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border: 4px solid white;
+          "
+        >
+          10
+        </div>
+        <!-- enemy health -->
+        <div
+          style="
+            position: relative;
+            width: 100%;
+            border-top: 4px solid white;
+            border-bottom: 4px solid white;
+            border-right: 4px solid white;
+          "
+        >
+          <div style="background-color: red; height: 30px"></div>
+          <div
+            id="enemyHealth"
+            style="
+              position: absolute;
+              background: #818cf8;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+            "
+          ></div>
+        </div>
+        <div></div>
+      </div>
+      <div
+        id="displayText"
+        style="
+          position: absolute;
+          color: white;
+          align-items: center;
+          justify-content: center;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: none;
+        "
+      >
+        Tie
+      </div>
+      <canvas></canvas>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+      integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/utils.js"></script>
+    <script src="js/classes.js"></script>
+    <script src="index.js"></script>
+    <script src="./connect.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+        type="application/javascript"></script>
+    <!-- <script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script> -->
+    <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
+
+
+
+    <div class = roadcontainer>
+      <h1 class = "roadtitle">Road map</h1>
+    <div class = "roadmap">
+
+        
+
+      <div class = "first">
+        <h2>25%</h2>
+        <img>
+        I will be using multiple marketing techniques to build an online presence aswell as a community for these nfts. I plan to host many nft giveaways, events and competitions through twitter and discord. I also plan to create a nft/clash Royale tiktok to promote, inform and entertain my target audience.
+
+
+      </div>
+        <div class = "second">
+          <h2>50%</h2>
+          Once my nfts have built a small community i will begin the pre sale starting on the 20/2/2022. This release will also be occupied by the store where users can use pawcoins generated by the nfts to buy books of power.
+
+
+         </div>
+          <div class = "third">
+            <h2>75%</h2>
+            Throughout this time i will be creating custom nfts for collectors holding over 3 cats as-well as giving away 50 nfts in competitions.
+
+
+           </div>
+            <div class = "fourth">
+              <h2 style = "color: #66B2FF;">100%</h2>
+              Once over 1000 nft sales have been made I will begin collaborating with other nft collections. I will also commence floor sweeps to
+
+Royalties will not be a thing.
+
+
+
+To ensure the floor price of the arena cats continues to rise I will be continuously releasing new content, rewards and new nfts. I will also be adding rarities.
+            </div>
+    </div>
+  </div>
+
+    <div class = "Pre-sale">
+        <h1>Pre-sale</h1>
+      Currently I cant afford to mint all the nfts so I am doing a presale.
+
+      <button class = "pre-sale-btn" src="pre-sale.html">
+        </button>
+
+    </div>
+    <div class = "about-wrap">
+      <h1 class = "about-title">About me</h1>
+    <div class = "about">
+      <div class = "description">
+
+      who am I?
+      Hi I'm Lukas, the creator of the Arena Cats nft. I created this nft as I
+      am currently saving for uni to study software engineering which starts in a month.
+
+  <br>
+      Incentives:
+
+The reason for the creation of these nfts is to support myself during university, minimise dept, pay for my accomodation and allow me to purchase an excessive amount of alcohol. i also enjoy creating pixel art aswell as creating websites so nfts just clicked with me.
+
+  <br>
+
+Future plans:
+
+In the future i will be releasing an empire of animal based pixelated nfts. These include pandas, frogs, monkeys etc.
+
+i also hope to use my knowledge from my software engineering degree to create an online multiplayer game where players can use there nfts to battle other players and earn crypto currency’s.
+
+
+
+What am i doing to reach these goals:
+
+I am currently spending all my free time studying php, javascript, web languages and web3 so that i can release an effective and beneficial nfts collection. I am also building my online presence so that i can promote this collection.
+    </div>
+
+      <div class = "portrait">
+        <img src="logo.png" alt="Google logo">
+      </div>
+    </div>
+    </div>
+    <div class = "Coin-info">
+        <h1>Paw coins</h1>
+      $Pawcoins are a currency that you can use to purchase
+
+      </div>
+
+    <div class = "Game-info">
+        <h1>Books of Power</h1>
+        Book of the white: gain a spot on thewhite list for the next nft drop: pixel pandas
+      <br>
+
+  Book of creation: recieve a custom made pixelcat with a theme of your liking. For example you can request a “devil cat with horns” and that nft will appear in your wallet within 3 days.
+
+  <br>
+  Book of upgrades: add a coloured tint of either gold, silver or bronze to your nft.
+  <br>
+  Book of riddles: gain access into the lore if the arena cats along with riddles and puzzles with prizes for those smart enough to solve them.
+    <br>
+  Book of voting:
+
+
+
+    </div>
+    <footer class="footer">
+
+<div class="footer-top">
+<div class="container">
+<div class="row">
+<div class="col-lg-4 col-md-4 col-12 left">
+Powered by <img src="assets/images/solana.png">
+<a href="https://notfin.com/" target="_blank" style="text-decoration: none;"><p style="color:#a7c1c0;margin-bottom:0px;font-style:italic;">As seen on</p><img src="https://notfin.com/logo/white-notfin.png" title="notfin" alt="notfin" width="130px" border="0"></a>
+</div>
+<div class="col-lg-8 col-md-8 col-12">
+<ul class="footerlinks">
+<li class="nav-item">
+<a href="https://twitter.com/NFTreeFrogs" target="_blank"><img src="assets/images/footer-twitter.png"></a>
+</li>
+<li class="nav-item">
+<a href="https://discord.com/invite/nftreefrogs" target="_blank"><img src="assets/images/footer-game.png"></a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+</footer>
+
+
+
+
+</body>
