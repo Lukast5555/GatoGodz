@@ -561,9 +561,9 @@ async function connect() {
 
     provider = new ethers.providers.Web3Provider(instance)
     const { chainId } = await provider.getNetwork()
-    if (chainId !== 80001) {
-      window.alert('Change the network to Matic Testnet')
-      throw new Error('Change network to Matic Testnet')
+    if (chainId !== 137) {
+      window.alert('Change the network to Polygon Mainnet')
+      throw new Error('Change network to Polygon Mainnet')
     }
     signer = provider.getSigner()
     let userAccount = await signer.getAddress()
@@ -587,7 +587,7 @@ async function mint() {
       await connect()
     }
     const contract = new ethers.Contract(
-      '0xAA1A525D63B39EB0815414d236E3179FBDbD4457',
+      '0x60A88fA0d712148d02b2f4678d9F7d542b420983',
       abi,
       signer
     )
@@ -596,7 +596,7 @@ async function mint() {
     const tokenValue = localStorage.getItem('tokenValue')
 
     tx = await contract.mint(tokenValue, {
-      value: ethers.utils.parseEther('0.01')
+      value: ethers.utils.parseEther('15')
     })
     tx.wait()
     buyNft(tx['from']) //// DataBase
@@ -606,7 +606,7 @@ async function mint() {
 }
 
 const getAddress = (userAccount) => {
-  fetch('https://nft-game-card.herokuapp.com/addaddress', {
+  fetch('https://gatogods2310.herokuapp.com/addaddress', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -625,7 +625,7 @@ const getAddress = (userAccount) => {
 
 const getCoins = (userAccount) => {
   let coins = 0
-  fetch(`https://nft-game-card.herokuapp.com/getcoins`, {
+  fetch(`https://gatogods2310.herokuapp.com/getcoins`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -647,7 +647,7 @@ const getCoins = (userAccount) => {
 }
 
 const buyNft = (userAccount) => {
-  fetch('https://nft-game-card.herokuapp.com/buynft', {
+  fetch('https://gatogods2310.herokuapp.com/buynft', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -673,7 +673,7 @@ const updateCoins = (userAccount, price) => {
     return
   }
   localStorage.setItem('coins', coins - price)
-  fetch(`https://nft-game-card.herokuapp.com/updatecoins/`, {
+  fetch(`https://gatogods2310.herokuapp.com/updatecoins/`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -694,7 +694,7 @@ const updateCoins = (userAccount, price) => {
 }
 
 const generateToken = () => {
-  fetch('https://nft-game-card.herokuapp.com/gettoken', {
+  fetch('https://gatogods2310.herokuapp.com/gettoken', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -709,7 +709,7 @@ const generateToken = () => {
 }
 
 const getusertokens = (userAccount) => {
-  fetch('https://nft-game-card.herokuapp.com/getusertokens', {
+  fetch('https://gatogods2310.herokuapp.com/getusertokens', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
